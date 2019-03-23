@@ -1,0 +1,87 @@
+#include<stdio.h>
+unsigned long long int l1=0,l2=0,x,y;
+unsigned long long int plus(unsigned long long int n)
+{
+    unsigned long long int m,count=0,count1=0;
+    m=n;
+    while(m)
+    {
+            m/=10;
+            count++;
+    }
+    m=n;
+    while(n)
+    {
+        if((n%10)%2==0)
+        {
+            count1++;
+        }
+        n/=10;
+    }
+    if(count1!=count)
+    {
+        m++;
+        l1++;
+        plus(m);
+    }
+    else
+    {
+        x=l1;
+        l1=0;
+        return x;
+    }
+}
+unsigned long long  int minus(unsigned long long int n)
+{
+    unsigned long long  int m,count=0,count1=0;
+    m=n;
+    while(m)
+    {
+            m/=10;
+            count++;
+    }
+    m=n;
+    while(n)
+    {
+        if((n%10)%2==0)
+        {
+            count1++;
+        }
+        n/=10;
+    }
+    if(count1!=count)
+    {
+        m--;
+        l2++;
+        minus(m);
+    }
+    else
+    {
+        y=l2;
+        l2=0;
+        return y;
+    }
+    
+}
+int main()
+{
+    unsigned long long int n,a,b;
+    int t,i;
+    scanf("%d",&t);
+    for(i=1;i<=t;i++)
+    {
+        scanf("%llu",&n);
+        a=plus(n);
+        b=minus(n);
+        printf("Case #");
+        if(a<b)
+        {
+            printf("%d: %llu\n",i,a);
+        }
+        else
+        {
+            printf("%d: %llu\n",i,b);
+        }
+    }
+    return 0;
+}
