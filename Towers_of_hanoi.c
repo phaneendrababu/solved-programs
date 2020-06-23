@@ -5,14 +5,14 @@ void TOH(int n,char disk_1,char disk_2,char disk_3)
     if(n==1)
     {
         printf("%c ---> %c\n",disk_1,disk_2);
-		count++;
+	count++;
     }
     else
     {
         TOH(n-1,disk_1,disk_3,disk_2);
         printf("%c ---> %c\n",disk_1,disk_2);
         TOH(n-1,disk_3,disk_2,disk_1);
-		count++;
+	count++;
     }
     
 }
